@@ -50,9 +50,9 @@ test('delete product', ()=> {
 
 test('delete not existing', ()=> {
   const cart = prepareCart();
-  const cartLength = cart.items.length;
+  const oldCart = cart.items;
   cart.delete(4);
-  const cartNewLength = cart.items.length;
+  const newCart = cart.items;
   
-  expect(cartLength).toBe(cartNewLength);
+  expect(oldCart).toEqual(newCart);
 });
